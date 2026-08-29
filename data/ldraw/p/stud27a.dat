@@ -1,0 +1,8 @@
+0 BFC CERTIFY CCW
+0 BFC INVERTNEXT
+1 16 0 0 0 0 0 11 0 -4 0 11 0 0 4-4cyli.dat
+1 16 0 0 0 0 0 14 0 -4 0 14 0 0 4-4cyli.dat
+1 16 0 -4 0 0 0 1 0 1 0 1 0 0 4-4rin11.dat
+1 16 0 -4 0 0 0 2 0 1 0 2 0 0 4-4ring6.dat
+1 16 0 -4 0 0 0 11 0 1 0 11 0 0 4-4edge.dat
+1 16 0 -4 0 0 0 14 0 1 0 14 0 0 4-4edge.dat
