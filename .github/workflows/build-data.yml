@@ -6,6 +6,12 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 4 * * 1"   # in fiecare luni, 04:00 UTC
+  push:
+    # reconstruieste cand se schimba chiar pipeline-ul; nu se auto-declanseaza
+    # din commit-ul propriu, care atinge doar data/
+    paths:
+      - "tools/build-data.mjs"
+      - ".github/workflows/build-data.yml"
 
 permissions:
   contents: write
