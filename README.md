@@ -10,7 +10,7 @@ serviciu extern in timpul procesarii.
 
 ## Cum se foloseste
 
-1. Deschide `brickgen/index.html` (local sau pe orice hosting static) si scrie codul setului,
+1. Deschide `index.html` (local sau pe orice hosting static) si scrie codul setului,
    ex. `10300`. Butonul deschide cautarea pe Mecabricks pentru acel cod.
 2. Pe Mecabricks: deschide modelul in **Workshop** → `File` → `Export` → format
    **Mecabricks (.zmbx)**. E nevoie de un cont gratuit.
@@ -66,7 +66,7 @@ Formatul `.mbx` este JSON: `parts[]` (id, configuratie, matrice 4x4 pe linii, cu
 ## Test
 
 ```
-node brickgen/test/pipeline.test.mjs
+node test/pipeline.test.mjs
 ```
 
 Construieste un `.zmbx` sintetic si verifica: numarul de piese si de culori, scara dedusa,
