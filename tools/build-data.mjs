@@ -239,7 +239,7 @@ async function main() {
     for (const partNum of used) {
       let cand = partNum, hops = 0, f = null;
       while (cand && hops < 8) {
-        f = resolveLdrawFile(ldrawDir, "parts/" + cand + ".dat");
+        f = resolveLdrawFile(ldrawDir, cand + ".dat");
         if (f) break;
         cand = parentOf[cand]; hops++;
       }
@@ -249,6 +249,10 @@ async function main() {
       ldrawOf[partNum] = cand;
       needFiles.add(f.rel);
       queue.push(f.rel);
+    }
+    if (!haveGeom.size) {
+      throw new Error("Nicio piesa nu s-a potrivit cu biblioteca LDraw — " +
+        "build oprit ca sa nu publice o baza de date goala.");
     }
     log(haveGeom.size.toLocaleString(), "au geometrie LDraw",
         `(${(100 * haveGeom.size / used.size).toFixed(0)}%)`,
@@ -333,6 +337,7 @@ async function main() {
     }
   }, null, 2));
 
+  if (!written) throw new Error("Niciun set nu a rezultat — build oprit.");
   log("gata:", written.toLocaleString(), "seturi in",
       Object.keys(shards).length, "fragmente");
   log("dimensiune data/:", mb(dirSize(DATA)));
