@@ -1,0 +1,12 @@
+0 BFC CERTIFY CCW
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 parts/s/60926s01.dat
+1 16 0 0 0 -1 0 0 0 1 0 0 0 1 parts/s/60926s01.dat
+1 16 0 0 -20 0 1 0 -1 0 0 0 0 1 p/beamhole.dat
+1 16 0 0 0 0 1 0 0 0 1 1 0 0 p/connhole.dat
+1 16 0 0 0 0 -1 0 1 0 0 0 0 -1 p/axleconnect.dat
+1 16 0 0 0 0 -1 0 -1 0 0 0 0 -1 p/axleconnect.dat
+1 16 0 0 30 0 0 1 -1 0 0 0 -20 0 p/axle.dat
+0 BFC INVERTNEXT
+1 16 4 29.5 -74.5 0 4.25 0 8 0 0 0 0 8 p/4-4cylc.dat
+0 BFC INVERTNEXT
+1 16 0 29.5 -74.5 0 -8.25 0 8 0 0 0 0 8 p/4-4cylc.dat

@@ -1,0 +1,28 @@
+0 BFC CERTIFY CCW
+1 16 0 24 0 2 0 0 0 -2.5 0 0 0 2 p/4-4ring3.dat
+1 16 0 24 0 6 0 0 0 2.5 0 0 0 6 p/4-4edge.dat
+0 BFC INVERTNEXT
+1 16 0 24 0 -6 0 0 0 -5 0 0 0 6 p/4-4cyli.dat
+1 16 0 19 0 8 0 0 0 5 0 0 0 8 p/4-4cylo.dat
+0 BFC INVERTNEXT
+1 16 0 18 0 6 0 0 0 1 0 0 0 6 p/4-4cyli.dat
+1 16 0 18 0 1 0 0 0 1 0 0 0 1 p/axl3hol3.dat
+1 16 0 18 0 0 0 -1 0 -1 0 -1 0 0 p/axl3ho10.dat
+1 16 0 18 0 0 0 -1 0 -1 0 -1 0 0 p/axl3hol9.dat
+1 16 0 8 0 1 0 0 0 10 0 0 0 1 p/axl3hol8.dat
+1 16 0 8 0 1 0 0 0 1 0 0 0 1 p/axl3hol2.dat
+1 16 0 8 0 0 0 -1 0 -1 0 -1 0 0 p/axl3hol9.dat
+1 16 0 8 0 1 0 0 0 1 0 0 0 1 p/axl3ho10.dat
+1 16 0 8 0 -2 0 0 0 -1 0 0 0 2 p/4-4ring2.dat
+1 16 0 8 0 4 0 0 0 1 0 0 0 4 p/4-4edge.dat
+0 BFC INVERTNEXT
+1 16 0 0 0 4 0 0 0 8 0 0 0 4 p/4-4cyli.dat
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 p/stud2a.dat
+1 16 0 0 0 6 0 0 0 1 0 0 0 6 p/4-4edge.dat
+1 16 0 0 0 0.5 0 0 0 1 0 0 0 0.5 p/4-4rin12.dat
+1 16 0 0 0 6.5 0 0 0 1 0 0 0 6.5 p/4-4edge.dat
+1 16 0 19 0 -2 0 0 0 -1 0 0 0 2 p/4-4ring4.dat
+1 16 0 19 0 10 0 0 0 1 0 0 0 10 p/4-4edge.dat
+1 16 0 19 0 -2 0 0 0 -10.5 0 0 0 2 p/4-4con4.dat
+1 16 0 8.5 0 -1 0 0 0 -5.5 0 0 0 1 p/4-4con7.dat
+1 16 0 3 0 -0.5 0 0 0 -3 0 0 0 0.5 p/4-4con13.dat

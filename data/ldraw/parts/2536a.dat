@@ -1,0 +1,28 @@
+0 BFC CERTIFY CCW
+0 BFC INVERTNEXT
+1 16 0 -20 0 2 0 0 0 4 0 0 0 2 p/4-4con4.dat
+0 BFC INVERTNEXT
+1 16 0 -32 0 10 0 0 0 12 0 0 0 10 p/4-4cylo.dat
+1 16 0 -16 0 1 0 0 0 1 0 0 0 1 p/stud2a.dat
+1 16 0 -16 0 6 0 0 0 1 0 0 0 6 p/4-4edge.dat
+1 16 0 -16 0 8 0 0 0 1 0 0 0 8 p/4-4edge.dat
+1 16 0 -16 0 2 0 0 0 1 0 0 0 2 p/4-4ring3.dat
+0 BFC INVERTNEXT
+1 16 0 -12 0 4 0 0 0 -4 0 0 0 4 p/4-4cyli.dat
+0 BFC INVERTNEXT
+1 16 0 -12 0 6 0 0 0 21.5 0 0 0 6 p/4-4cylo.dat
+1 16 0 0 0 11 0 0 0 1 0 0 0 11 p/4-4edge.dat
+1 16 0 0 0 2.2 0 0 0 -1 0 0 0 2.2 p/4-4ring4.dat
+1 16 0 0 0 8.8 0 0 0 1 0 0 0 8.8 p/4-4edge.dat
+1 16 0 -9 0 11 0 0 0 9 0 0 0 11 p/4-4cyli.dat
+1 16 0 -21 0 1 0 0 0 12 0 0 0 1 p/4-4con11.dat
+1 16 0 -32 0 2 0 0 0 11 0 0 0 2 p/4-4con6.dat
+1 16 0 -12 0 4 0 0 0 1 0 0 0 4 p/4-4edge.dat
+1 16 0 -12 0 2 0 0 0 -1 0 0 0 2 p/4-4ring2.dat
+1 16 0 -32 0 14 0 0 0 1 0 0 0 14 p/4-4edge.dat
+1 16 0 -32 0 2 0 0 0 1 0 0 0 2 p/4-4ring5.dat
+1 16 0 -32 0 2 0 0 0 1 0 0 0 2 p/4-4ring6.dat
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 parts/s/2536as01.dat
+1 16 0 0 0 0 0 1 0 1 0 -1 0 0 parts/s/2536as01.dat
+1 16 0 0 0 -1 0 0 0 1 0 0 0 -1 parts/s/2536as01.dat
+1 16 0 0 0 0 0 -1 0 1 0 1 0 0 parts/s/2536as01.dat

@@ -1,0 +1,19 @@
+0 BFC CERTIFY CCW
+1 16 0 -20 0 1 0 0 0 1 0 0 0 1 p/connectcollar2.dat
+1 16 0 -20 0 1 0 0 0 1 0 0 0 -1 p/connectcollar2.dat
+1 16 0 -18 0 1 0 0 0 -1 0 0 0 1 p/confricrib1.dat
+1 16 0 -18 0 1 0 0 0 -1 0 0 0 -1 p/confricrib1.dat
+1 16 0 -18 0 -1 0 0 0 -1 0 0 0 -1 p/confricrib1.dat
+1 16 0 -18 0 -1 0 0 0 -1 0 0 0 1 p/confricrib1.dat
+1 16 0 -2 0 1 0 0 0 1 0 0 0 1 p/confricrib2.dat
+1 16 0 -13 0 6 0 0 0 11 0 0 0 6 p/4-4cyli.dat
+1 16 0 -2 0 8 0 0 0 1 0 0 0 8 p/4-4edge.dat
+1 16 0 -2 0 8 0 0 0 2 0 0 0 8 p/4-4cyli.dat
+1 16 0 -2 0 6 0 0 0 1 0 0 0 6 p/4-4edge.dat
+1 16 0 -2 0 2 0 0 0 1 0 0 0 2 p/4-4ring3.dat
+0 BFC INVERTNEXT
+1 16 0 -13 .6 2.4 0 -2.4 0 13 0 2.4 0 2.4 p/1-4cyli.dat
+0 BFC INVERTNEXT
+1 16 0 -13 -.6 -2.4 0 2.4 0 13 0 -2.4 0 -2.4 p/1-4cyli.dat
+1 16 -2.4 -6.5 0 0 -1 0 -6.5 0 0 0 0 -3 p/rect2p.dat
+1 16 2.4 -6.5 0 0 1 0 -6.5 0 0 0 0 -3 p/rect2p.dat

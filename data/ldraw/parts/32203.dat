@@ -1,0 +1,10 @@
+0 BFC CERTIFY CW
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 p/connhole.dat
+1 16 0 0 -60 1 0 0 0 1 0 0 0 1 p/znap6.dat
+1 16 0 0 60 -1 0 0 0 1 0 0 0 -1 p/znap6.dat
+1 16 0 0 40 -1 0 0 0 1 0 0 0 -1 p/connhole.dat
+1 16 0 0 -40 -1 0 0 0 1 0 0 0 -1 p/connhole.dat
+1 16 0 0 -20 -1 0 0 0 1 0 0 0 -1 p/znap1.dat
+1 16 0 0 20 -1 0 0 0 1 0 0 0 -1 p/znap1.dat
+1 16 -10 0 0 0 1 0 10 0 0 0 0 65 p/rect.dat
+1 16 10 0 0 0 -1 0 10 0 0 0 0 65 p/rect.dat

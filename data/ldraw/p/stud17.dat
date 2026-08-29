@@ -1,0 +1,6 @@
+0 BFC CERTIFY CCW
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 p/stud17a.dat
+1 16 0 0 0 6 0 0 0 1 0 0 0 -6 p/3-4edge.dat
+1 16 0 0 0 6 0 0 0 1 0 0 0 6 p/1-16edge.dat
+1 16 0 0 0 0 0 6 0 1 0 6 0 0 p/1-16edge.dat
+1 16 0 0 0 4 0 0 0 1 0 0 0 4 p/4-4edge.dat

@@ -1,0 +1,18 @@
+0 BFC CERTIFY CCW
+1 16 10 -10 0 0 0 -1 0 8 0 1 0 0 p/npeghole.dat
+1 16 0 -10 10 -1 0 0 0 8 0 0 0 -1 p/npeghole.dat
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 p/connhole.dat
+1 16 20 0 0 1 0 0 0 1 0 0 0 1 p/connhole.dat
+1 16 0 0 20 1 0 0 0 1 0 0 0 1 p/connhole.dat
+1 16 10 10 0 0 0 -1 0 -8 0 1 0 0 p/npeghole.dat
+1 16 0 10 10 -1 0 0 0 -8 0 0 0 -1 p/npeghole.dat
+1 16 0 -10 -10 -1 0 0 0 8 0 0 0 -1 p/npeghole.dat
+1 16 0 10 -10 -1 0 0 0 -8 0 0 0 -1 p/npeghole.dat
+1 16 0 0 -20 1 0 0 0 1 0 0 0 1 p/connhole.dat
+1 16 -10 -10 0 0 0 -1 0 8 0 1 0 0 p/npeghole.dat
+1 16 -10 10 0 0 0 -1 0 -8 0 1 0 0 p/npeghole.dat
+1 16 -20 0 0 1 0 0 0 1 0 0 0 1 p/connhole.dat
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 parts/s/39793s01.dat
+1 16 0 0 0 -1 0 0 0 1 0 0 0 1 parts/s/39793s01.dat
+1 16 0 0 0 1 0 0 0 1 0 0 0 -1 parts/s/39793s01.dat
+1 16 0 0 0 -1 0 0 0 1 0 0 0 -1 parts/s/39793s01.dat

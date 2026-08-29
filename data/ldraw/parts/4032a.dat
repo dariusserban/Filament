@@ -1,0 +1,17 @@
+0 BFC CERTIFY CCW
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 parts/s/4032s01.dat
+1 16 0 0 0 0 0 1 0 1 0 -1 0 0 parts/s/4032s01.dat
+1 16 0 0 0 -1 0 0 0 1 0 0 0 -1 parts/s/4032s01.dat
+1 16 0 0 0 0 0 -1 0 1 0 1 0 0 parts/s/4032s01.dat
+1 16 0 4 0 1 0 0 0 -1 0 0 0 1 p/stud4a.dat
+1 16 0 4 0 8 0 0 0 1 0 0 0 8 p/4-4edge.dat
+1 16 0 4 0 8 0 0 0 -1 0 0 0 8 p/4-4ndis.dat
+1 16 0 4 0 1 0 0 0 1 0 0 0 1 p/axlehol3.dat
+1 16 0 0 0 1 0 0 0 4 0 0 0 1 p/axl5hol8.dat
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 p/axl5ho10.dat
+1 16 0 4 0 0 0 1 0 -1 0 1 0 0 p/axl5ho10.dat
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 p/axlehol2.dat
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 p/axl5hol9.dat
+1 16 0 4 0 1 0 0 0 1 0 0 0 1 p/axl5hol9.dat
+1 16 0 0 0 6 0 0 0 1 0 0 0 6 p/4-4ndis.dat
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 p/stug10-2x2.dat

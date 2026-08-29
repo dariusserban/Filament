@@ -1,0 +1,6 @@
+0 BFC CERTIFY CCW
+1 16 0 -10 0 -1 0 0 0 1 0 0 0 1 p/peghole.dat
+0 BFC INVERTNEXT
+1 16 0 8 0 -6 0 0 0 -16 0 0 0 6 p/4-4cyli.dat
+1 16 0 8 0 0 0 -6 0 1 0 6 0 0 p/4-4edge.dat
+1 16 0 -10 0 -1 0 0 0 1 0 0 0 -1 p/4-4ring8.dat

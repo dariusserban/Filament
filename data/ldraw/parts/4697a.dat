@@ -1,0 +1,56 @@
+0 BFC CERTIFY CCW
+1 16 0 4 0 0 0 -4 0 15 0 4 0 0 p/4-4cyli.dat
+1 16 0 0 3.999 0 0 4 4 0 0 0 15 0 p/4-4cyli.dat
+1 16 0 0 -3.999 0 0 4 -4 0 0 0 -15 0 p/4-4cyli.dat
+0 BFC INVERTNEXT
+1 16 0 20 0 0 0 2 0 -18 0 2 0 0 p/4-4cyli.dat
+0 BFC INVERTNEXT
+1 16 0 0 20 0 0 2 -2 0 0 0 -18 0 p/4-4cyli.dat
+0 BFC INVERTNEXT
+1 16 0 0 -20 0 0 -2 -2 0 0 0 18 0 p/4-4cyli.dat
+1 16 0 0 19 0 0 -4 -4 0 0 0 1 0 p/4-4edge.dat
+1 16 0 19 0 0 0 -4 0 1 0 4 0 0 p/4-4edge.dat
+1 16 0 0 -19 0 0 -4 4 0 0 0 -1 0 p/4-4edge.dat
+1 16 0 0 20 0 0 -3 -3 0 0 0 1 0 p/4-4edge.dat
+1 16 0 20 0 0 0 -3 0 1 0 3 0 0 p/4-4edge.dat
+1 16 0 0 -20 0 0 -3 3 0 0 0 -1 0 p/4-4edge.dat
+1 16 0 0 -20 0 0 2 2 0 0 0 1 0 p/4-4edge.dat
+1 16 0 0 20 0 0 2 -2 0 0 0 -1 0 p/4-4edge.dat
+1 16 0 20 0 0 0 2 0 -1 0 2 0 0 p/4-4edge.dat
+1 16 0 0 19 0 0 -1 -1 0 0 0 1 0 p/4-4con3.dat
+1 16 0 19 0 0 0 -1 0 1 0 1 0 0 p/4-4con3.dat
+1 16 0 0 -19 0 0 -1 1 0 0 0 -1 0 p/4-4con3.dat
+1 16 0 0 20 0 0 -1 -1 0 0 0 -1 0 p/4-4ring2.dat
+1 16 0 20 0 0 0 1 0 -1 0 -1 0 0 p/4-4ring2.dat
+1 16 0 0 -20 0 0 1 -1 0 0 0 1 0 p/4-4ring2.dat
+1 16 0 0 0 -4 0 0 0 -0.707107 4 0 -0.707107 -4 p/2-4edge.dat
+1 16 0 0 0 -4 0 0 0 0.707107 4 0 -0.707107 4 p/2-4edge.dat
+1 16 0 0 0 -2 0 0 0 -0.707107 2 0 -0.707107 -2 p/2-4edge.dat
+1 16 0 0 0 -2 0 0 0 0.707107 2 0 -0.707107 2 p/2-4edge.dat
+1 16 0 0 -3.999 0 0 4 4 0 0 0 4 0 p/1-4cyls.dat
+1 16 0 0 3.999 0 0 4 4 0 0 0 -4 0 p/1-4cyls.dat
+1 16 0 0 3.999 0 0 -4 4 0 0 0 -4 0 p/1-4cyls.dat
+1 16 0 4 0 0 0 4 0 -4 0 -4 0 0 p/1-4cyls.dat
+1 16 0 4 0 0 0 -4 0 -4 0 -4 0 0 p/1-4cyls.dat
+1 16 0 4 0 0 0 -4 0 -4 0 4 0 0 p/1-4cyls.dat
+1 16 0 4 0 0 0 4 0 -4 0 4 0 0 p/1-4cyls.dat
+1 16 0 0 -3.999 0 0 -4 4 0 0 0 4 0 p/1-4cyls.dat
+0 BFC INVERTNEXT
+1 16 0 0 -2 0 0 2 2 0 0 0 2 0 p/1-4cyls.dat
+0 BFC INVERTNEXT
+1 16 0 0 2 0 0 2 2 0 0 0 -2 0 p/1-4cyls.dat
+0 BFC INVERTNEXT
+1 16 0 0 2 0 0 -2 2 0 0 0 -2 0 p/1-4cyls.dat
+0 BFC INVERTNEXT
+1 16 0 2 0 0 0 2 0 -2 0 -2 0 0 p/1-4cyls.dat
+0 BFC INVERTNEXT
+1 16 0 2 0 0 0 -2 0 -2 0 -2 0 0 p/1-4cyls.dat
+0 BFC INVERTNEXT
+1 16 0 2 0 0 0 -2 0 -2 0 2 0 0 p/1-4cyls.dat
+0 BFC INVERTNEXT
+1 16 0 2 0 0 0 2 0 -2 0 2 0 0 p/1-4cyls.dat
+0 BFC INVERTNEXT
+1 16 0 0 -2 0 0 -2 2 0 0 0 2 0 p/1-4cyls.dat
+0 BFC INVERTNEXT
+1 16 0 0 -2 -2 0 0 0 0 -2 0 4 0 p/2-4cyli.dat
+1 16 0 0 -3.999 -4 0 0 0 0 -4 0 8 0 p/2-4cyli.dat

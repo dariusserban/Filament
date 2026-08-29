@@ -1,0 +1,7 @@
+0 BFC CERTIFY CCW
+1 16 40 0 0 0 -80 0 1 0 0 0 0 -1 p/axlehole.dat
+1 16 -40 0 0 0 1 0 0 0 1 1 0 0 p/axlehol2.dat
+1 16 -40 0 0 0 1 0 0 0 1 1 0 0 p/4-4ring6.dat
+1 16 40 0 0 0 -1 0 0 0 1 -1 0 0 p/axlehol2.dat
+1 16 40 0 0 0 -1 0 0 0 1 -1 0 0 p/4-4ring6.dat
+1 16 40 0 0 0 -80 0 7 0 0 0 0 -7 p/4-4cylo.dat

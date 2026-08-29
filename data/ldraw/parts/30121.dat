@@ -1,0 +1,14 @@
+0 BFC CERTIFY CCW
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 parts/s/30121s01.dat
+1 16 0 0 0 -1 0 0 0 1 0 0 0 1 parts/s/30121s01.dat
+0 BFC INVERTNEXT
+1 16 0 0 0 6 0 0 0 -3.5 0 0 0 -6 p/4-4cylo.dat
+1 16 0 -3.5 0 2 0 0 0 1 0 0 0 2 p/4-4ring3.dat
+1 16 0 0 0 -1 0 0 0 -1 0 0 0 1 p/4-4ring6.dat
+1 16 0 -3.5 0 8 0 0 0 1 0 0 0 8 p/4-4edge.dat
+0 BFC INVERTNEXT
+1 16 0 -3.5 0 8 0 0 0 -1.04 0 0 0 -8 p/4-4cyli.dat
+0 BFC INVERTNEXT
+1 16 0 -4.54 0 0 0 -8 0 -0.56 0 -8 0 0 p/4-4cyls.dat
+1 16 0 -5.1055 0 0 0 -8 0.56 -1 0 -8 0 0 p/4-4edge.dat
+1 16 0 -5.1055 0 1 0 0 0 1 -0.070382 0 0 1 p/4-4ring8.dat

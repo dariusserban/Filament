@@ -1,0 +1,11 @@
+0 BFC CERTIFY CCW
+1 16 0 0 0 0 -1 0 6 0 0 0 0 6 p/4-4edge.dat
+1 16 0 0 0 0 -1 0 8 0 0 0 0 8 p/4-4edge.dat
+1 16 0 0 0 0 1 0 0 0 1 1 0 0 p/connect.dat
+1 16 -2 0 0 0 1 0 1 0 0 0 0 1 p/confricrib2.dat
+1 16 -18 0 0 0 -1 0 1 0 0 0 0 1 p/confricrib1.dat
+1 16 -18 0 0 0 -1 0 1 0 0 0 0 -1 p/confricrib1.dat
+1 16 -18 0 0 0 -1 0 -1 0 0 0 0 -1 p/confricrib1.dat
+1 16 -18 0 0 0 -1 0 -1 0 0 0 0 1 p/confricrib1.dat
+1 16 0 0 0 0 -1 0 0 0 1 1 0 0 p/stud2a.dat
+1 16 0 0 0 0 -1 0 0 0 2 2 0 0 p/4-4ring3.dat

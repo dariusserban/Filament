@@ -1,0 +1,16 @@
+0 BFC CERTIFY CCW
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 parts/3475a.dat
+1 16 2 4 30 0 1 0 1 0 0 0 0 1 p/axlehol2.dat
+1 16 -2 4 30 0 1 0 1 0 0 0 0 1 p/axlehol2.dat
+1 16 20 4 30 0 -18 0 1 0 0 0 0 1 p/axlehol6.dat
+1 16 20 4 30 0 -18 0 -1 0 0 0 0 1 p/axlehol6.dat
+1 16 20 4 30 0 -18 0 1 0 0 0 0 -1 p/axlehol6.dat
+1 16 20 4 30 0 -18 0 -1 0 0 0 0 -1 p/axlehol6.dat
+1 16 20 4 30 0 1 0 1 0 0 0 0 1 p/axlehol3.dat
+1 16 -20 4 30 0 1 0 1 0 0 0 0 1 p/axlehol3.dat
+1 16 2 4 30 0 -1 0 1 0 0 0 0 1 p/axl5end.dat
+1 16 -2 4 30 0 1 0 1 0 0 0 0 1 p/axl5end.dat
+1 16 -2 4 30 0 -18 0 1 0 0 0 0 1 p/axlehol6.dat
+1 16 -2 4 30 0 -18 0 -1 0 0 0 0 1 p/axlehol6.dat
+1 16 -2 4 30 0 -18 0 1 0 0 0 0 -1 p/axlehol6.dat
+1 16 -2 4 30 0 -18 0 -1 0 0 0 0 -1 p/axlehol6.dat

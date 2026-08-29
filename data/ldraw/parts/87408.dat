@@ -1,0 +1,6 @@
+0 BFC CERTIFY CCW
+1 16 0 -10 0 0 0 -1 0 -1 0 -1 0 0 p/connhole.dat
+1 16 9 -10 0 0 -1 0 0 0 10 -20 0 0 p/rect2p.dat
+1 16 -9 -10 0 0 1 0 0 0 10 20 0 0 p/rect2p.dat
+1 16 0 0 0 0 -1 0 0 0 1 -1 0 0 parts/s/87408s01.dat
+1 16 0 0 0 0 -1 0 0 0 1 1 0 0 parts/s/87408s01.dat

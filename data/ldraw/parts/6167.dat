@@ -1,0 +1,20 @@
+0 BFC CERTIFY CW
+1 16 0 240 0 16 0 0 0 1 0 0 0 16 p/4-4edge.dat
+1 16 0 240 0 20 0 0 0 1 0 0 0 20 p/4-4edge.dat
+1 16 0 240 0 4 0 0 0 -1 0 0 0 4 p/ring4.dat
+1 16 0 4 0 6 0 0 0 1 0 0 0 6 p/4-4edge.dat
+1 16 0 4 0 16 0 0 0 1 0 0 0 16 p/4-4edge.dat
+1 16 0 0 0 6 0 0 0 1 0 0 0 6 p/4-4edge.dat
+0 BFC INVERTNEXT
+1 16 0 4 0 16 0 0 0 236 0 0 0 16 p/4-4cyli.dat
+0 BFC INVERTNEXT
+1 16 0 0 0 6 0 0 0 4 0 0 0 6 p/4-4cyli.dat
+1 16 0 0 0 20 0 0 0 240 0 0 0 20 p/4-4cyli.dat
+1 16 0 0 0 6 0 0 0 1 0 0 0 6 p/ring1.dat
+1 16 0 0 0 10 0 0 0 1 0 0 0 10 p/ring1.dat
+1 16 0 4 0 6 0 0 0 -1 0 0 0 6 p/ring1.dat
+1 16 0 4 0 4 0 0 0 -1 0 0 0 4 p/ring3.dat
+1 16 10 0 10 1 0 0 0 1 0 0 0 1 p/stud10.dat
+1 16 -10 0 10 0 0 -1 0 1 0 1 0 0 p/stud10.dat
+1 16 10 0 -10 0 0 1 0 1 0 -1 0 0 p/stud10.dat
+1 16 -10 0 -10 -1 0 0 0 1 0 0 0 -1 p/stud10.dat
