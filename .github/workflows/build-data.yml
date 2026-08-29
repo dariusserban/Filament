@@ -1,0 +1,50 @@
+name: Actualizeaza baza de date
+
+# Ruleaza pe serverele GitHub, care au acces liber la internet, si comite
+# rezultatul in data/. Site-ul citeste apoi totul de la propria adresa.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * 1"   # in fiecare luni, 04:00 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-data-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Construieste data/
+        run: node tools/build-data.mjs
+
+      - name: Raport
+        run: |
+          echo "### Baza de date" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          cat data/meta.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "Marime data/: $(du -sh data | cut -f1)" >> $GITHUB_STEP_SUMMARY
+          echo "Fisiere: $(find data -type f | wc -l)" >> $GITHUB_STEP_SUMMARY
+
+      - name: Comite modificarile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data
+          if git diff --cached --quiet; then
+            echo "Nimic de actualizat."
+          else
+            git commit -m "Refresh the parts and set database from Rebrickable and LDraw"
+            git push
+          fi
