@@ -20,7 +20,7 @@ const DATA = path.join(ROOT, "data");
 const WORK = path.join(ROOT, ".databuild");
 
 const RB = "https://cdn.rebrickable.com/media/downloads/";
-const RB_FILES = ["sets", "colors", "inventories", "inventory_parts", "themes"];
+const RB_FILES = ["sets", "colors", "inventories", "inventory_parts", "themes", "parts", "part_relationships"];
 const LDRAW_REPO = "https://github.com/gkjohnson/ldraw-parts-library.git";
 const LDRAW_SUBDIR = "complete/ldraw";
 
@@ -99,15 +99,25 @@ function ensureLdraw() {
 
 /* Pastreaza doar liniile care conteaza pentru geometrie: sub-fisiere (1),
    triunghiuri (3), patrulatere (4) si directivele BFC. Restul (anteturi,
-   istoric, comentarii, muchii de tip 2 si 5) nu influenteaza plasa. */
-function stripDat(text) {
+   istoric, comentarii, muchii de tip 2 si 5) nu influenteaza plasa.
+   Referintele catre alte fisiere sunt rescrise ca. cai explicite, ca browserul
+   sa nu fie nevoit sa incerce mai multe foldere si sa culeaga 404-uri. */
+function stripDat(text, ldrawDir) {
   const out = [];
   for (const raw of text.split("\n")) {
     const line = raw.trim();
     if (!line) continue;
     const t = line[0];
-    if (t === "1" || t === "3" || t === "4") { out.push(line); continue; }
-    if (t === "0" && /^0\s+BFC\b/i.test(line)) out.push(line);
+    if (t === "3" || t === "4") { out.push(line); continue; }
+    if (t === "0" && /^0\s+BFC\b/i.test(line)) { out.push(line); continue; }
+    if (t === "1") {
+      const f = line.split(/\s+/);
+      if (f.length < 15) continue;
+      const ref = f.slice(14).join(" ");
+      const r = resolveLdrawFile(ldrawDir, ref.replace(/\\/g, "/").toLowerCase());
+      if (!r) continue;                       // referinta lipsa: sarim linia
+      out.push(f.slice(0, 14).join(" ") + " " + r.rel);
+    }
   }
   return out.join("\n") + "\n";
 }
@@ -165,6 +175,21 @@ async function main() {
   const themes = {};
   for (const r of csvRows(files.themes)) themes[r.id] = r.name;
 
+  log("citesc numele pieselor...");
+  const partNames = {};
+  for (const r of csvRows(files.parts)) partNames[r.part_num] = r.name;
+
+  // O piesa imprimata, colorata sau turnata altfel are aceeasi geometrie ca
+  // parintele ei. Pentru printare 3D asta e exact ce vrem, deci daca piesa nu
+  // are fisier LDraw propriu urcam pe lantul de relatii pana gasim unul.
+  log("citesc relatiile dintre piese...");
+  const parentOf = {};
+  for (const r of csvRows(files.part_relationships)) {
+    if (!["P", "R", "T", "M", "A"].includes(r.rel_type)) continue;
+    if (!parentOf[r.child_part_num]) parentOf[r.child_part_num] = r.parent_part_num;
+  }
+  log("  ", Object.keys(parentOf).length.toLocaleString(), "relatii");
+
   log("citesc seturile...");
   const sets = {};
   for (const r of csvRows(files.sets)) {
@@ -202,7 +227,7 @@ async function main() {
   log("  ", Object.keys(bySet).length.toLocaleString(), "seturi cu inventar");
 
   // --- 2. LDraw: ce piese au geometrie
-  let ldrawDir = null, haveGeom = new Set(), needFiles = new Set();
+  let ldrawDir = null, haveGeom = new Set(), needFiles = new Set(), ldrawOf = {};
   if (!SKIP_LDRAW) {
     ldrawDir = ensureLdraw();
     const used = new Set();
@@ -210,13 +235,24 @@ async function main() {
     log(used.size.toLocaleString(), "numere de piesa distincte apar in seturi");
 
     const queue = [];
+    let direct = 0, viaParent = 0;
     for (const partNum of used) {
-      const f = resolveLdrawFile(ldrawDir, "parts/" + partNum + ".dat")
-        || resolveLdrawFile(ldrawDir, partNum + ".dat");
-      if (f) { haveGeom.add(partNum); needFiles.add(f.rel); queue.push(f.rel); }
+      let cand = partNum, hops = 0, f = null;
+      while (cand && hops < 8) {
+        f = resolveLdrawFile(ldrawDir, "parts/" + cand + ".dat");
+        if (f) break;
+        cand = parentOf[cand]; hops++;
+      }
+      if (!f) continue;
+      if (hops === 0) direct++; else viaParent++;
+      haveGeom.add(partNum);
+      ldrawOf[partNum] = cand;
+      needFiles.add(f.rel);
+      queue.push(f.rel);
     }
     log(haveGeom.size.toLocaleString(), "au geometrie LDraw",
-        `(${(100 * haveGeom.size / used.size).toFixed(0)}%)`);
+        `(${(100 * haveGeom.size / used.size).toFixed(0)}%)`,
+        `— ${direct.toLocaleString()} direct, ${viaParent.toLocaleString()} prin piesa de baza`);
 
     log("rezolv dependentele (sub-piese si primitive)...");
     while (queue.length) {
@@ -235,7 +271,7 @@ async function main() {
     let raw = 0, stripped = 0;
     for (const rel of needFiles) {
       const src = fs.readFileSync(path.join(ldrawDir, rel), "utf8");
-      const out = stripDat(src);
+      const out = stripDat(src, ldrawDir);
       raw += src.length; stripped += out.length;
       const dest = path.join(DATA, "ldraw", rel);
       fs.mkdirSync(path.dirname(dest), { recursive: true });
@@ -278,6 +314,13 @@ async function main() {
   }
   fs.writeFileSync(path.join(DATA, "sets-index.json"), JSON.stringify(index));
   fs.writeFileSync(path.join(DATA, "colors.json"), JSON.stringify(colors));
+
+  // numele piesei (pentru fisiere lizibile) si fisierul LDraw care ii da forma
+  const partsOut = {};
+  for (const partNum of haveGeom) {
+    partsOut[partNum] = [partNames[partNum] || partNum, ldrawOf[partNum] || partNum];
+  }
+  fs.writeFileSync(path.join(DATA, "parts.json"), JSON.stringify(partsOut));
   fs.writeFileSync(path.join(DATA, "meta.json"), JSON.stringify({
     built: new Date().toISOString(),
     sets: written,
