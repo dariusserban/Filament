@@ -212,7 +212,7 @@
         world.max[1] - world.min[1],
         world.max[2] - world.min[2]) || 5;
       state.dist = state.radius / Math.sin(FOV / 2) * 1.15;
-      state.yaw = 0.8; state.pitch = 0.5;
+      state.yaw = 0.8; state.pitch = 0.85;   // placile sunt plate: privim mai de sus
       state.dirty = true;
     }
 

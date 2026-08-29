@@ -128,3 +128,16 @@ main{max-width:1280px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
 footer{border-top:1px solid var(--bdr);padding:2rem 1.5rem;text-align:center}
 footer p{font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.07em;line-height:2}
 .hidden{display:none!important}
+
+/* ---------- cautare set ---------- */
+.field.search{position:relative}
+.sug{position:absolute;top:100%;left:0;right:0;z-index:60;background:var(--card);border:1px solid var(--bdr2);border-top:none;max-height:340px;overflow-y:auto;box-shadow:0 18px 40px rgba(0,0,0,.55)}
+.sug-row{display:flex;align-items:baseline;gap:.7rem;width:100%;padding:.6rem .8rem;text-align:left;border-bottom:1px solid #1c1c1c;transition:background .15s}
+.sug-row:hover,.sug-row:focus{background:#1d1d1d;outline:none}
+.sug-num{font-family:var(--mono);font-size:.72rem;color:var(--red);flex:0 0 auto;min-width:66px}
+.sug-name{flex:1;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sug-meta{font-family:var(--mono);font-size:.58rem;color:var(--muted);flex:0 0 auto;white-space:nowrap}
+
+.set-title{font-family:var(--disp);font-size:1.5rem;font-weight:800;letter-spacing:.02em;margin-bottom:1rem}
+.set-title b{color:var(--red)}
+.set-title span{color:var(--muted);font-size:1.1rem}

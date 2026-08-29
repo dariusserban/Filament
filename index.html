@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="color-scheme" content="dark"/>
-<title>BRICKSPLIT — piese LEGO pe culori, gata de printat</title>
-<meta name="description" content="Incarci exportul Mecabricks al unui set LEGO si primesti un ZIP cu toate piesele in STL, impartite pe culori, gata pentru printare 3D."/>
+<title>BRICKSPLIT — piesele oricarui set LEGO, pe culori, gata de printat</title>
+<meta name="description" content="Scrii numarul unui set LEGO si primesti o arhiva cu toate piesele in STL, impartite pe culori si asezate pe patul imprimantei."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -26,7 +26,7 @@
     </a>
     <nav>
       <a class="nav-link" href="#cum">Cum functioneaza</a>
-      <a class="nav-link" href="#legal">Legal</a>
+      <a class="nav-link" href="#surse">Surse</a>
       <a class="nav-link" href="https://github.com/dariusserban/Filament" target="_blank" rel="noopener noreferrer">Cod sursa</a>
     </nav>
   </div>
@@ -36,103 +36,77 @@
 <main>
   <section class="hero">
     <div class="kicker">Uz personal · necomercial</div>
-    <h1>Un set LEGO,<br/>toate piesele,<br/><em>impartite pe culori</em></h1>
+    <h1>Scrii numarul setului.<br/><em>Primesti toate piesele.</em></h1>
     <p>
-      Dai codul setului, incarci exportul <b>.zmbx</b> de pe Mecabricks si primesti o arhiva ZIP
-      cu cate un fisier STL pentru fiecare forma de piesa, organizate in foldere pe culori,
-      cu cantitati, inventar si necesarul estimat de filament. Totul se proceseaza
-      <b>local, in browserul tau</b> — niciun fisier nu pleaca de pe calculator.
+      Atat. Cauti setul dupa numar sau dupa nume, iar pagina scoate o arhiva cu
+      fiecare piesa in format STL, impartita pe culori si deja asezata pe patul
+      imprimantei. Cu cantitati, inventar si necesarul estimat de filament.
+      Totul se face <b>local, in browserul tau</b>.
     </p>
   </section>
 
   <!-- PASUL 1 -->
   <section class="step active" id="step1">
-    <div class="step-hd"><span class="step-no">01</span><span class="step-ti">Codul setului</span></div>
+    <div class="step-hd"><span class="step-no">01</span><span class="step-ti">Ce set vrei</span></div>
     <div class="step-bd">
       <div class="row">
-        <div class="field" style="flex:1;min-width:220px">
-          <label for="setCode">Cod set LEGO</label>
-          <input id="setCode" type="text" placeholder="ex. 10300, 75192, 42115" autocomplete="off" spellcheck="false"/>
+        <div class="field search" style="flex:1;min-width:260px">
+          <label for="setCode">Numar sau nume de set</label>
+          <input id="setCode" type="text" placeholder="ex. 10300, 75192, Millennium Falcon"
+                 autocomplete="off" spellcheck="false" disabled/>
+          <div class="sug hidden" id="sug"></div>
         </div>
-        <a class="btn btn-primary" id="openMeca" target="_blank" rel="noopener noreferrer">Cauta pe Mecabricks &#8599;</a>
+        <button class="btn btn-go" id="go" disabled>Genereaza piesele</button>
       </div>
-      <p class="hint" style="margin-top:1.1rem">
-        Codul este folosit pentru denumirea arhivei si a folderelor, si pentru a-ti deschide
-        cautarea potrivita pe Mecabricks. Geometria pieselor vine <b>exclusiv</b> din exportul
-        pe care il faci tu de acolo (vezi pasul 2).
-      </p>
+      <p class="hint" id="dbNote" style="margin-top:.9rem">Se incarca baza de date...</p>
+
+      <div id="loadProg" class="hidden">
+        <div class="bar indet"><i></i></div>
+        <div class="status" id="loadStatus"></div>
+      </div>
+      <div id="loadMsg"></div>
     </div>
   </section>
 
   <!-- PASUL 2 -->
-  <section class="step" id="step2">
-    <div class="step-hd"><span class="step-no">02</span><span class="step-ti">Exportul Mecabricks</span></div>
+  <section class="step hidden" id="step2">
+    <div class="step-hd"><span class="step-no">02</span><span class="step-ti">Ce contine</span></div>
     <div class="step-bd">
-      <div class="drop" id="drop">
-        <div class="drop-ic">&#8681;</div>
-        <div class="drop-t">Trage aici fisierul .zmbx</div>
-        <div class="drop-s">SAU DA CLICK PENTRU A-L ALEGE · .ZMBX SAU .MBX</div>
-      </div>
-      <input type="file" id="file" accept=".zmbx,.mbx,application/zip" class="hidden"/>
-
-      <div id="loadProg" class="hidden">
-        <div class="bar indet"><i></i></div>
-        <div class="status" id="loadStatus">Se pregateste...</div>
-      </div>
-      <div id="loadMsg"></div>
-
-      <details style="margin-top:1.2rem" id="cum">
-        <summary class="hint" style="cursor:pointer"><b>Cum obtin fisierul .zmbx de pe Mecabricks?</b></summary>
-        <div class="hint" style="margin-top:.7rem">
-          <ol style="padding-left:1.2rem;line-height:1.9">
-            <li>Deschide <a href="https://www.mecabricks.com/en/models" target="_blank" rel="noopener noreferrer">mecabricks.com</a> si cauta setul dupa cod (butonul de la pasul 1 face asta pentru tine).</li>
-            <li>Deschide modelul in <b>Workshop</b> (editorul Mecabricks). Ai nevoie de un cont gratuit.</li>
-            <li>Din meniu alege <b>File &rarr; Export</b> si formatul <b>Mecabricks (.zmbx)</b>.</li>
-            <li>Trage fisierul descarcat in zona de mai sus.</li>
-          </ol>
-          <p style="margin-top:.7rem">
-            Fisierul .zmbx contine deja toata geometria pieselor, asa ca pagina asta nu are
-            nevoie sa contacteze Mecabricks — si nici nu o face. De aceea pasul de export
-            trebuie facut de tine, cu contul tau, respectand conditiile lor de export.
-          </p>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <!-- PASUL 3 -->
-  <section class="step hidden" id="step3">
-    <div class="step-hd"><span class="step-no">03</span><span class="step-ti">Ce contine setul</span></div>
-    <div class="step-bd">
+      <p class="set-title" id="setTitle"></p>
       <div class="stats" id="stats"></div>
       <div class="split">
         <div id="viewWrap">
           <canvas id="view"></canvas>
-          <div class="view-note">TRAGE = ROTESTE · SCROLL = ZOOM · CLICK PE O CULOARE = ASCUNDE</div>
+          <div class="view-note">PIESELE ASEZATE PE PLACI · TRAGE = ROTESTE · SCROLL = ZOOM · CLICK PE O CULOARE = ASCUNDE</div>
         </div>
         <div class="clist" id="clist"></div>
       </div>
     </div>
   </section>
 
-  <!-- PASUL 4 -->
-  <section class="step hidden" id="step4">
-    <div class="step-hd"><span class="step-no">04</span><span class="step-ti">Genereaza arhiva</span></div>
+  <!-- PASUL 3 -->
+  <section class="step hidden" id="step3">
+    <div class="step-hd"><span class="step-no">03</span><span class="step-ti">Descarca arhiva</span></div>
     <div class="step-bd">
       <div class="row" style="margin-bottom:1rem">
         <div class="field">
-          <label for="scale">Scara — mm per unitate</label>
-          <input id="scale" type="number" step="0.0001" min="0.01" style="width:150px"/>
-          <span class="unit" id="scaleNote"></span>
-        </div>
-        <div class="field">
-          <label for="sizeFactor">Marire</label>
-          <select id="sizeFactor" style="width:140px">
-            <option value="1">1x (marime reala)</option>
+          <label for="sizeFactor">Marime</label>
+          <select id="sizeFactor" style="width:170px">
+            <option value="1">1x — marime reala</option>
             <option value="1.5">1.5x</option>
             <option value="2">2x</option>
             <option value="3">3x</option>
             <option value="4">4x</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="plate">Patul imprimantei</label>
+          <select id="plate" style="width:190px">
+            <option value="180">180 x 180 mm</option>
+            <option value="220">220 x 220 mm</option>
+            <option value="250" selected>250 x 250 mm</option>
+            <option value="300">300 x 300 mm</option>
+            <option value="350">350 x 350 mm</option>
           </select>
         </div>
         <div class="field">
@@ -149,21 +123,15 @@
       </div>
 
       <div class="checks">
-        <label class="chk"><input type="checkbox" id="optPerPiece" checked/>
-          <span class="chk-t">STL pentru fiecare forma de piesa
-            <small>Recomandat. Un fisier per forma, cu cantitatea in nume — multiplici obiectul in slicer.</small></span></label>
-        <label class="chk"><input type="checkbox" id="optMerged"/>
-          <span class="chk-t">STL unic per culoare, model asamblat
-            <small>Toate piesele unei culori in pozitia lor din model. Util pentru printare multi-material sau ca referinta.</small></span></label>
+        <label class="chk"><input type="checkbox" id="optPlates" checked/>
+          <span class="chk-t">Placi gata de feliat
+            <small>Piesele fiecarei culori deja aranjate pe pat, cate un STL per placa. Deschizi in slicer si dai print.</small></span></label>
+        <label class="chk"><input type="checkbox" id="optPieces" checked/>
+          <span class="chk-t">Cate un STL pentru fiecare forma
+            <small>Cu cantitatea in nume. Util daca vrei sa alegi tu ce si cate printezi.</small></span></label>
         <label class="chk"><input type="checkbox" id="opt3mf"/>
-          <span class="chk-t">Un 3MF colorat cu tot modelul
-            <small>Fisier unic in milimetri, cu o culoare per obiect. Se deschide direct in PrusaSlicer / Orca / Bambu Studio.</small></span></label>
-        <label class="chk"><input type="checkbox" id="optLogos"/>
-          <span class="chk-t">Include logo-ul de pe stud-uri
-            <small>Implicit dezactivat: textul e prea fin ca sa iasa la printare si e marca inregistrata LEGO.</small></span></label>
-        <label class="chk"><input type="checkbox" id="optZUp" checked/>
-          <span class="chk-t">Orienteaza cu Z in sus
-            <small>Roteste modelul din conventia Mecabricks (Y sus) in cea a imprimantelor 3D. Lasa bifat.</small></span></label>
+          <span class="chk-t">Si placile in format 3MF
+            <small>Acelasi aranjament, dar cu culoarea inclusa si in milimetri. Pentru PrusaSlicer / Orca / Bambu Studio.</small></span></label>
       </div>
 
       <div class="row" style="margin-top:1.3rem">
@@ -179,25 +147,52 @@
     </div>
   </section>
 
-  <section class="step" id="legal">
-    <div class="step-hd"><span class="step-no">&#9432;</span><span class="step-ti">Sursa pieselor si utilizare</span></div>
+  <section class="step" id="cum">
+    <div class="step-hd"><span class="step-no">&#9432;</span><span class="step-ti">Cum functioneaza</span></div>
     <div class="step-bd hint">
       <p style="margin-bottom:.8rem">
-        <b>De unde vin piesele.</b> Toata geometria provine din fisierul <code>.zmbx</code> exportat
-        de tine din Mecabricks: acel fisier contine deja plasele 3D ale fiecarei piese, plus
-        stud-urile, tuburile si pinii. Aplicatia le reconstruieste local si le grupeaza pe culori,
-        folosind exact tabelul de culori Mecabricks (182 culori).
+        Pagina are, chiar in ea, inventarul oficial al fiecarui set LEGO si geometria
+        pieselor. Cand scrii un numar de set, cauta lista pieselor, construieste forma
+        fiecareia din fisierele LDraw, le grupeaza pe culori si le asaza pe placi de
+        printare. Nu trimite nimic nicaieri si nu cere niciun cont.
       </p>
       <p style="margin-bottom:.8rem">
-        <b>De ce nu descarca singura setul.</b> Mecabricks nu ofera un API public de descarcare
-        a pieselor, iar exportul modelelor este acoperit de conditiile lor de utilizare si
-        legat de contul tau. Am ales intentionat sa nu automatizez descarcarea: exporti tu,
-        o singura data, iar restul se face automat.
+        <b>Scara.</b> O unitate LDraw inseamna exact 0.4 mm, iar distanta dintre doi
+        stud-uri este 8 mm. Fisierele ies la marimea reala, in milimetri, cu Z in sus
+        si asezate pe planul de printare — nu trebuie sa scalezi nimic in slicer.
       </p>
       <p>
-        <b>Uz personal.</b> Rezultatul este pentru printare proprie, necomerciala. Nu redistribui
-        si nu vinde fisierele generate. LEGO&reg; este marca inregistrata a Grupului LEGO, care nu
-        sponsorizeaza si nu autorizeaza acest instrument. Mecabricks&trade; apartine autorilor sai.
+        <b>Ce nu iese.</b> Cateva piese din fiecare set nu au model 3D: autocolante,
+        piese textile, cabluri, componente electrice si imprimeuri unice de minifigurina.
+        Oricum nu se printeaza din plastic. Sunt listate separat in arhiva, cu cantitati.
+      </p>
+    </div>
+  </section>
+
+  <section class="step" id="surse">
+    <div class="step-hd"><span class="step-no">&#9432;</span><span class="step-ti">De unde vin datele</span></div>
+    <div class="step-bd hint">
+      <p style="margin-bottom:.8rem">
+        <b>Inventarele seturilor</b> vin de la
+        <a href="https://rebrickable.com" target="_blank" rel="noopener noreferrer">Rebrickable</a>,
+        care publica lista completa de piese a fiecarui set oficial LEGO si permite
+        folosirea datelor cu mentionarea sursei.
+      </p>
+      <p style="margin-bottom:.8rem">
+        <b>Geometria pieselor</b> vine din
+        <a href="https://ldraw.org" target="_blank" rel="noopener noreferrer">LDraw Parts Library</a>,
+        o biblioteca libera construita de comunitate de peste treizeci de ani,
+        redistribuibila sub licenta CCAL 2.0.
+      </p>
+      <p style="margin-bottom:.8rem">
+        Amandoua sunt aduse automat, saptamanal, si stocate chiar in acest site.
+        Modelele LDraw sunt facute pentru randare, nu pentru printare, asa ca la unele
+        piese slicerul va repara automat mici erori in plasa. E normal.
+      </p>
+      <p>
+        Rezultatul e pentru printare proprie, necomerciala. Nu redistribui si nu vinde
+        fisierele generate. LEGO&reg; este marca inregistrata a Grupului LEGO, care nu
+        sponsorizeaza si nu autorizeaza acest instrument.
       </p>
     </div>
   </section>
@@ -205,13 +200,14 @@
 
 <footer>
   <p>BRICKSPLIT · procesare 100% locala · fara upload · fara cont · uz personal</p>
+  <p>Inventare: Rebrickable · Geometrie: LDraw Parts Library (CCAL 2.0)</p>
 </footer>
 </div>
 
 <script src="js/zip.js"></script>
-<script src="js/colors.js"></script>
-<script src="js/engine.js"></script>
-<script src="js/pack.js"></script>
+<script src="js/mesh.js"></script>
+<script src="js/ldraw.js"></script>
+<script src="js/build.js"></script>
 <script src="js/viewer.js"></script>
 <script src="js/app.js"></script>
 </body>
